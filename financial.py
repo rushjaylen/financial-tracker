@@ -1,3 +1,4 @@
+import os
 import dash
 from dash import dcc, html
 import plotly.express as px
@@ -49,4 +50,6 @@ app.layout = html.Div([
 ])
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))  # Use environment port or default to 8050
+    app.run_server(host="0.0.0.0", port=port)
+
